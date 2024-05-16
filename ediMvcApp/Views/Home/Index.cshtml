@@ -1,0 +1,33 @@
+﻿@using ediMvcApi.Models
+@model List<Biodata>?
+@{
+    ViewData["Title"] = "Home Page";
+    int userBiodata = @Context.Session.GetInt32("userBiodata") ?? 0;
+    int userId = @Context.Session.GetInt32("userId") ?? 0;
+}
+
+<div class="text-center" style="
+     margin-top: 150px;">
+    <h1 class="display-4">Selamat Datang di DaftarApps</h1>
+    @if(userBiodata == 0 && userId == 0)
+    {
+        <button class="btn btn-primary mt-4" id="btn-login">Login</button>
+    }
+    else if(userBiodata != 0 && userId != 0)
+    {
+        <p class="h1 mt-4">@Model[0].nama.ToUpper()</p>
+        <p>Lihat dan atur profile kamu <a asp-controller="userBiodata" asp-action="index">disini!</a></p>
+    }
+    else if(userId != 0 && userBiodata == 0)
+    {
+        <a asp-controller="userBiodata" asp-action="index" class="btn btn-primary mt-4" id="btn-entry">Isi Data Profile</a>
+    }
+
+</div>
+<script>
+    $("#btn-login").click(function (e) {
+        location.replace("/Auth/Login");
+    });
+
+   
+</script>

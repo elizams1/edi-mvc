@@ -1,3 +1,4 @@
+using ediMvcApi.Repository.BiodataRepo;
 using ediMvcApi.Repository.UserRepo;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IBiodataRepository, BiodataRepository>();
 
 var app = builder.Build();
 

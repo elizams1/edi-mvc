@@ -1,0 +1,96 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<form id="formUser" >
+    <div>
+        <div class="card" style="
+     margin-top: 150px;">
+            <div class="card-body">
+                <div class="card-title h1 text-center mb-3">Daftar Akun</div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" name="Email" class="form-control" id="email" placeholder="name@example.com">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" name="Password" class="form-control" id="password" placeholder="****">
+                </div>
+
+                <div class="d-flex justify-content-center mb-3">
+                    <button class="btn btn-primary">
+                        Daftar
+                    </button>
+                </div>
+                <div class="text-center">
+                    <p>Sudah punya akun? <a asp-action="Login">Login</a></p>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</form>
+<script>
+    $("#formUser").validate({
+        errorClass:"text-danger",
+        rules: {
+            Email:{
+                required:true
+            },
+            Password: {
+                required:true
+            }
+        },
+        messages:{
+            Email:{
+                required:"Email harap diisi!"
+            },
+            Password: {
+                required:"Password harap diis!"
+            }
+        },
+        submitHandler:function(form){
+            var email = $("#email").val();
+            var password = $("#password").val();
+
+            $.ajax({
+                url:"/Auth/CreateUser",
+                type:"post",
+                data:{
+                    email:email,
+                    password:password
+                },
+                dataType:"json",
+                beforeSend: function(e){
+
+                },
+                success: function(res){
+                    console.log(res);
+                    // debugger;
+                    if(res.statusCode == 200){
+                        
+                        Swal.fire({
+                            title: "Berhasil",
+                            text: "Lakukan login untuk masuk ke dalam sistem!",
+                            icon: "success"
+                        }).then(function () {
+                            location.replace("/Auth/Login");
+                        });
+                    }
+                    else{
+                        Swal.fire({
+                            title: "Gagal Masuk",
+                            text: "Akun sudah ada!",
+                            icon: "error"
+                        });
+                    }
+                }
+            })
+        }
+    })
+</script>
+

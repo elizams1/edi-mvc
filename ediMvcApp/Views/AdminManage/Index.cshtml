@@ -1,0 +1,82 @@
+﻿@using ediMvcApi.Models
+@model List<Biodata>?
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div>
+    <div class="">
+        <div class="header-top" style="margin-bottom:50px; margin-top:50px;">
+            <p class="h2 text-center">Daftar Calon Karyawan</p>
+        </div>
+        <div class="d-flex justify-content-between" style="margin-bottom:20px;">
+            <div class="">
+                <button class="btn btn-success" id="btn-tambah">Tambah</button>
+            </div>
+            <div class="d-flex">
+                  <form asp-controller="AdminManage" asp-action="Index">
+                      
+                      <div class="d-flex" >
+                        <input type="text" name="filter" id="filter" class="form-control" placeholder="Cari" />
+                        <button class="btn btn-success rounded" style="margin-left:5px;"  title="search" type="submit" id="btn-search">
+                            Cari
+                        </button>
+                      </div>
+                      
+                    
+                  </form>
+            </div>
+        </div>
+        <div class="the-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center">Id</th>
+                        <th scope="col" class="text-center">Nama</th>
+                        <th scope="col" class="text-center">Posisi</th>
+                        <th scope="col" class="text-center">Tempat,Tanggal Lahir</th>
+                        <th scope="col" class="text-center">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Biodata bio in Model)
+                    {
+                        <tr>
+                            <td class="text-center">@bio.id</td>
+                            <td class="text-center">@bio.nama</td>
+                            <td class="text-center">@bio.posisi</td>
+                            <td class="text-center">@bio.tempat_lahir , @((bio.tanggal_lahir ?? DateTime.Now).ToString("dd/MM/yyyy"))</td>
+                            <td class="text-center">
+                                <button class="btn btn-primary" data-id="@bio.id" >Ubah</button>
+                                <button class="btn btn-danger" data-id="@bio.id">Hapus</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $("#btn-tambah").click(function(e){
+        alert("Ini tombol tambah");
+    });
+
+    $(".btn-primary").click(function (e) {
+        let theId = $(this).data("id");
+        alert(theId);
+    });
+    $(".btn-danger").click(function (e) {
+        let theId = $(this).data("id");
+        alert(theId);
+    });
+
+    // $("#btn-search").click(function(e){
+        
+    //     var filter = $("#filter").val();
+    //     console.log(filter);
+    // })
+</script>

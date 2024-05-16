@@ -3,7 +3,7 @@
     public class User
     {
         public int id { get; set; }
-        public string? biodata_id { get; set; }
+        public int? biodata_id { get; set; }
         public string? email { get; set; }
         public string? password { get; set; }
         public int? akses_id { get; set; }

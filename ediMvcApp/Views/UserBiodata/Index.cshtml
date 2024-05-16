@@ -1,0 +1,87 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div>
+    <div class="card">
+        <p class="h3 text-center mt-4">Data Pribadi Pelamar</p>
+        <div class="card-body">
+            <div>
+                <div class="mb-3">
+                    <label class="form-label">Posisi yang dilamar</label>
+                    <input type="text" class="form-control" id="posisi" name="posisi" >
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Nama</label>
+                    <input type="text" class="form-control" id="nama" name="nama">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">No. KTP</label>
+                    <input type="text" class="form-control" id="no_ktp" name="no_ktp">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Tempat Lahir</label>
+                    <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Tanggal Lahir</label>
+                    <input type="text" class="form-control" id="tanggal_lahir" name="tanggal_lahir">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Jenis Kelamin</label>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="jk_p" name="tempat_lahir" value="P">
+                        <label for="jk_p" class="form-check-label">Perempuan</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" class="form-control" id="jk_l" name="tempat_lahir" value="L">
+                        <label for="jk_l" class="form-check-label">Laki - Laki</label>
+                    </div>
+                    
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Agama</label>
+                    <input type="text" class="form-control" id="agama" name="agama">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Golongan Darah</label>
+                    <input type="text" class="form-control" id="gol_darah" name="gol_darah">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Status</label>
+                    <input type="text" class="form-control" id="status" name="status">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Alamat KTP</label>
+                    <input type="text" class="form-control" id="alamat_ktp" name="alamat_ktp">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Alamat Tinggal</label>
+                    <input type="text" class="form-control" id="alamat_tinggal" name="alamat_tinggal">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">No. Telp</label>
+                    <input type="text" class="form-control" id="no_telp" name="no_telp">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">No. Telepon Orang Terdekat</label>
+                    <input type="text" class="form-control" id="no_telp_terdekat" name="no_telp_terdekat">
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-center">
+            <button class="btn btn-primary" id="btn-simpan">Simpan</button>
+        </div>
+    </div>
+
+</div>
+<script>
+    $("#btn-simpan").click(function(e){
+        alert("fitur masih dikembangkan");
+    })
+</script>
